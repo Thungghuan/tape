@@ -2,9 +2,9 @@ let config = require("./config.default");
 
 try {
   config = require("./config");
-  console.log("got default config");
+  console.log("Using your own configuration file in config.js");
 } catch {
-  console.log("cannot get default config");
+  console.log("No configuration file found, using default file");
 }
 
 module.exports = config;
