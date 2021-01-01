@@ -3,6 +3,7 @@ const http = require("http");
 // const path = require("path");
 // const bodyParser = require("body-parser");
 const config = require("../config/index");
+const router = require("../server/routes/index");
 
 const app = express();
 const server = http.createServer(app);
@@ -15,7 +16,7 @@ const port = config.server_port;
 // const answerRouter = require('./routes/answer');
 
 app.use(express.json());
-
+app.use("/", router);
 // app.get('/', (req, res) => {
 //   res.send("Test successfully")
 // })
