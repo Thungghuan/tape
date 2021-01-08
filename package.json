@@ -12,6 +12,7 @@
     "core-js": "^3.6.5",
     "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.17.1",
     "mongoose": "^5.11.8",
     "vue": "^3.0.0",
     "vue-router": "^4.0.0-0"
