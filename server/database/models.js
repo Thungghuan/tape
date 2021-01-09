@@ -15,10 +15,10 @@ const questionSchema = mongoose.Schema({
   answer_data: Date
 });
 
-const user = conn.model("user", userSchema);
-const question = conn.model("question", questionSchema);
+const User = conn.model("User", userSchema);
+const Question = conn.model("Question", questionSchema);
 
 module.exports = {
-  user,
-  question
+  User,
+  Question
 };
