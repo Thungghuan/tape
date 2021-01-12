@@ -3,7 +3,8 @@ const config = require("../../config/index");
 
 const connectionOptions = {
   useUnifiedTopology: true,
-  useNewUrlParser: true
+  useNewUrlParser: true,
+  useFindAndModify: false
 };
 
 const conn = mongoose.createConnection(

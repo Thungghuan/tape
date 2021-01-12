@@ -12,7 +12,7 @@ const questionSchema = mongoose.Schema({
   question: String,
   public: Number,
   answer: String,
-  answer_data: Date
+  answer_date: Date
 });
 
 const User = conn.model("User", userSchema);
