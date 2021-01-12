@@ -13,9 +13,13 @@ module.exports = {
       username: req.body.username
     }).exec((err, user) => {
       if (!user) {
-        res.status(403).send("Invalid username");
+        res.status(403).send({
+          msg: "Invalid username"
+        });
       } else if (hash(req.body.password) != user.password) {
-        res.status(403).send("Credentials don't match");
+        res.status(403).send({
+          msg: "Credentials don't match"
+        });
       } else {
         req.session.isLogin = true;
         res.send({
@@ -26,14 +30,18 @@ module.exports = {
   },
   logout: function(req, res) {
     req.session.isLogin = false;
-    res.send("Logout successfully");
+    res.send({
+      msg: "Logout successfully"
+    });
   },
   register: function(req, res) {
     User.create({
       username: req.body.username,
       password: hash(req.body.password)
     });
-    res.send("Register successfully");
+    res.send({
+      msg: "Register successfully"
+    });
   },
   adminStatus: function(req, res) {
     User.find({}).exec((err, users) => {

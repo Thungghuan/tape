@@ -7,7 +7,7 @@ const questionController = require("../controllers/questionController");
 router.post("/login", userController.login);
 router.post("/register", userController.register);
 router.post("/logout", userController.logout);
-router.get("/adminStatus", userController.adminStatus);
+router.get("/status", userController.adminStatus);
 
 router.get("/question", questionController.getPublicQuestions);
 router.get("/question/:id", questionController.getPublicQuestionById);

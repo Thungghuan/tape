@@ -18,7 +18,9 @@ module.exports = {
       }
     }).exec((err, question) => {
       if (!question) {
-        res.status(401).send("Resource not found");
+        res.status(401).send({
+          msg: "Resource not found"
+        });
       } else {
         res.send(question);
       }
@@ -41,7 +43,9 @@ module.exports = {
         id: req.params.id
       }).exec((err, question) => {
         if (!question) {
-          res.status(401).send("Resource not found");
+          res.status(401).send({
+            msg: "Resource not found"
+          });
         } else {
           res.send(question);
         }
@@ -63,13 +67,16 @@ module.exports = {
         public: -1
       });
       res.send({
-        id
+        id,
+        question: req.body.question
       });
     });
   },
   answer: function(req, res) {
     if (!req.session.isLogin) {
-      res.status(401).send("Unauthorized");
+      res.status(401).send({
+        msg: "Unauthorized"
+      });
     } else {
       Question.findOneAndUpdate(
         {
