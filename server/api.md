@@ -1,15 +1,15 @@
 * [users](#users)
   * [register](#register)
-  * [sign in](#sign in)
-  * [sign out](#sign out)
-  * [get admin status](#get admin status)
+  * [sign in](#sign_in)
+  * [sign out](#sign_out)
+  * [get admin status](#get_admin_status)
 * [questions](#questions)
-  * [get all public questions](#get all public questions)
-  * [get a public question by ID](#get a public question by ID)
-  * [get all questions](#get all questions)
-  * [get a question by ID](#get a question by ID)
-  * [post a question](#post a question)
-  * [post an answer](#post an answer)
+  * [get all public questions](#get_all_public_questions)
+  * [get a public question by ID](#get_a_public_question_by_ID)
+  * [get all questions](#get_all_questions)
+  * [get a question by ID](#get_a_question_by_ID)
+  * [post a question](#post_a_question)
+  * [post an answer](#post_an_answer)
 
 
 
@@ -42,7 +42,7 @@
 
 
 
-### Sign in
+### Sign_in
 
 | data        |                       |
 | ----------- | --------------------- |
@@ -83,7 +83,7 @@
   }
   ```
 
-### Sign out
+### Sign_out
 
 | data        |                        |
 | ----------- | ---------------------- |
@@ -101,7 +101,7 @@
   }
   ```
 
-### Get admin status
+### Get_admin_status
 
 | data         |                                                            |
 | ------------ | ---------------------------------------------------------- |
@@ -120,11 +120,11 @@
   }
   ```
 
-  
+
 
 ## Questions
 
-### Get all public questions
+### Get_all_public_questions
 
 | data             |                                                    |
 | ---------------- | -------------------------------------------------- |
@@ -158,7 +158,7 @@
   ]
   ```
 
-### Get a public question by ID
+### Get_a_public_question_by_ID
 
 | data            |                                                 |
 | --------------- | ----------------------------------------------- |
@@ -182,7 +182,7 @@
   }
   ```
 
-### Get all questions
+### Get_all_questions
 
 | data            |                                     |
 | --------------- | ----------------------------------- |
@@ -228,7 +228,7 @@
   ]
   ```
 
-### Get a question by ID
+### Get_a_question_by_ID
 
 | data            |                              |
 | --------------- | ---------------------------- |
@@ -252,7 +252,7 @@
   }
   ```
 
-### Post a question
+### Post_a_question
 
 | data            |                 |
 | --------------- | --------------- |
@@ -278,7 +278,7 @@
   }
   ```
 
-### Post an answer
+### Post_an_answer
 
 | data            |                                             |
 | --------------- | ------------------------------------------- |
