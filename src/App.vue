@@ -5,18 +5,8 @@
     />
   </div>
   <div id="wrapper">
-    <div class="ask-wrapper">
-      11
-    </div>
-    <div class="question-wrapper">
-      <div class="title"></div>
-      <Question />
-      <Question />
-      <Question />
-      <Question />
-      <Question />
-      <Question />
-    </div>
+    <ask-wrapper />
+    <question-wrapper />
   </div>
   <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
@@ -27,11 +17,13 @@
 
 <script>
 // @ is an alias to /src
-import Question from "@/components/Question.vue";
+import AskWrapper from "./components/AskWrapper.vue";
+import QuestionWrapper from "./components/QuestionWrapper.vue";
 
 export default {
   components: {
-    Question
+    AskWrapper,
+    QuestionWrapper
   }
 };
 </script>
@@ -63,26 +55,7 @@ export default {
 #wrapper {
   width: 90vw;
   margin: 0 auto;
-  padding-top: 15vh;
-}
-
-.ask-wrapper {
-  width: 70vw;
-  height: 25vh;
-  margin: 0 auto;
-  background-color: red;
-}
-
-.question-wrapper {
-  width: 80vw;
-  margin: 0 auto;
-  background-color: black;
-  margin-top: 20vh;
-}
-
-.title {
-  height: 200px;
-  background-color: #ff0;
+  padding-top: 25vh;
 }
 
 /* #nav {
