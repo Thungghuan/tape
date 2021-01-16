@@ -5,7 +5,7 @@
     />
   </div>
   <div id="wrapper">
-    <ask-wrapper />
+    <ask-wrapper @click="pushAskRoute"></ask-wrapper>
     <question-wrapper />
   </div>
 </template>
@@ -20,6 +20,11 @@ export default {
   components: {
     AskWrapper,
     QuestionWrapper
+  },
+  methods: {
+    pushAskRoute() {
+      this.$router.push("/ask");
+    }
   }
 };
 </script>
