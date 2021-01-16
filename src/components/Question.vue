@@ -1,8 +1,8 @@
 <template>
   <div class="question">
-    <div class="ask-time">{{ question.ask_time }}</div>
+    <div class="ask-time">{{ question.date }}</div>
     <div class="ask-text">
-      <span>{{ question.question_text }}</span>
+      <span>{{ question.question }}</span>
     </div>
     <div class="more-btn">&gt;</div>
   </div>

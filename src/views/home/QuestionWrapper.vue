@@ -9,9 +9,10 @@
       </div>
     </div>
     <question
-      v-for="(question, key) in questions"
+      v-for="question in questions"
       :question="question"
-      :key="key"
+      :key="question.id"
+      @click="pushAnswerRoute(question)"
     />
   </div>
 </template>
@@ -27,20 +28,28 @@ export default {
       profile_url: "http://cdn.thungghuan.xyz/lzh-68888866.jpg",
       questions: [
         {
-          ask_time: "3分钟前",
-          question_text: "这是一个问题123456？"
+          id: 1,
+          date: "3分钟前",
+          question: "这是一个问题123456？",
+          answer: "这是一个回答哦654321"
         },
         {
-          ask_time: "3分钟前",
-          question_text: "这是一个问题？"
+          id: 2,
+          date: "3分钟前",
+          question: "这是一个问题123456？",
+          answer: "这是一个回答哦654321"
         },
         {
-          ask_time: "3分钟前",
-          question_text: "这是一个问题？"
+          id: 3,
+          date: "3分钟前",
+          question: "这是一个问题123456？",
+          answer: "这是一个回答哦654321"
         },
         {
-          ask_time: "3分钟前",
-          question_text: "这是一个问题？"
+          id: 4,
+          date: "3分钟前",
+          question: "这是一个问题123456？",
+          answer: "这是一个回答哦654321"
         }
       ]
     };
@@ -54,6 +63,11 @@ export default {
         "font-size": `${1.5 -
           Math.floor((this.username.length + 8) / 4) * 0.1}em`
       };
+    }
+  },
+  methods: {
+    pushAnswerRoute(question) {
+      this.$router.push("/answer/" + question.id);
     }
   }
 };

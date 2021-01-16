@@ -13,7 +13,7 @@
 <script>
 // @ is an alias to /src
 import AskWrapper from "@/components/AskWrapper.vue";
-import QuestionWrapper from "@/components/QuestionWrapper.vue";
+import QuestionWrapper from "@/views/home/QuestionWrapper.vue";
 
 export default {
   name: "Home",
