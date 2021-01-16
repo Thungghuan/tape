@@ -2,16 +2,17 @@
   <div class="question-wrapper">
     <div class="question-head">
       <div class="profile">
-        <img src="http://cdn.thungghuan.xyz/lzh-68888866.jpg" alt="" />
+        <img :src="profile_url" alt="" />
       </div>
-      <div class="title" :style="titleFontSize">{{ username }}的其他回答</div>
+      <div class="title" :style="titleFontSize">
+        {{ username }}的其他回答（{{ questions.length }}）
+      </div>
     </div>
-    <question />
-    <question />
-    <question />
-    <question />
-    <question />
-    <question />
+    <question
+      v-for="(question, key) in questions"
+      :question="question"
+      :key="key"
+    />
   </div>
 </template>
 
@@ -22,7 +23,26 @@ export default {
   name: "QuestionWrapper",
   data() {
     return {
-      username: "Huan"
+      username: "Huan",
+      profile_url: "http://cdn.thungghuan.xyz/lzh-68888866.jpg",
+      questions: [
+        {
+          ask_time: "3分钟前",
+          question_text: "这是一个问题123456？"
+        },
+        {
+          ask_time: "3分钟前",
+          question_text: "这是一个问题？"
+        },
+        {
+          ask_time: "3分钟前",
+          question_text: "这是一个问题？"
+        },
+        {
+          ask_time: "3分钟前",
+          question_text: "这是一个问题？"
+        }
+      ]
     };
   },
   components: {
@@ -31,7 +51,8 @@ export default {
   computed: {
     titleFontSize() {
       return {
-        "font-size": `${1.3 - Math.floor(this.username.length / 4) * 0.1}em`
+        "font-size": `${1.5 -
+          Math.floor((this.username.length + 8) / 4) * 0.1}em`
       };
     }
   }
@@ -40,20 +61,25 @@ export default {
 
 <style scoped>
 .question-wrapper {
-  width: 80vw;
+  width: 90vw;
   margin: 0 auto;
   /* background-color: black; */
   margin-top: 25vh;
+  margin-bottom: 5vh;
 }
 
 .question-head {
+  width: 85vw;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
 }
 .profile {
-  width: 20vw;
-  height: 20vw;
+  width: 18vw;
+  height: 18vw;
   box-shadow: 0 0 3px #000000;
   border-radius: 50%;
   overflow: hidden;
@@ -63,9 +89,8 @@ export default {
   height: auto;
 }
 .title {
-  width: 50vw;
+  width: 60vw;
   color: black;
-  font-size: 1.2em;
   font-weight: 600;
 }
 </style>
