@@ -6,9 +6,13 @@ module.exports = {
       public: {
         $gt: 0
       }
-    }).exec((err, questions) => {
-      res.send(questions);
-    });
+    })
+      .sort({
+        id: -1
+      })
+      .exec((err, questions) => {
+        res.send(questions);
+      });
   },
   getPublicQuestionById: function(req, res) {
     Question.findOne({
@@ -30,9 +34,13 @@ module.exports = {
     if (!req.session.isLogin) {
       res.status(401).send("Unauthorized");
     } else {
-      Question.find().exec((err, questions) => {
-        res.send(questions);
-      });
+      Question.find()
+        .sort({
+          id: -1
+        })
+        .exec((err, questions) => {
+          res.send(questions);
+        });
     }
   },
   getAllQuestionById: function(req, res) {
