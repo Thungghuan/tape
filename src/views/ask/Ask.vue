@@ -30,7 +30,21 @@ export default {
   },
   methods: {
     postQuestion() {
-      this.$router.push("/");
+      this.$axios({
+        url: "/question",
+        method: "post",
+        data: {
+          question: this.question
+        }
+      })
+        .then(res => {
+          console.log(res);
+          alert("发送成功");
+          this.$router.push("/");
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };

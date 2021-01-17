@@ -13,7 +13,7 @@ const port = config.server_port;
 
 app.use(
   cors({
-    origin: "http://localhost:8080",
+    origin: config.cross_resource_origin,
     credentials: true
   })
 );
