@@ -62,7 +62,7 @@ module.exports = {
       }
       Question.create({
         id,
-        date: Date.now(),
+        date: Date.now() + 8 * 3600 * 1000,
         question: req.body.question,
         public: -1
       });
@@ -85,7 +85,7 @@ module.exports = {
         {
           public: req.body.public,
           answer: req.body.answer,
-          answer_date: Date.now()
+          answer_date: Date.now() + 8 * 3600 * 1000
         },
         {
           new: true
