@@ -22,6 +22,7 @@ function getTime(time) {
   let moment = timeData[1];
   let hour = moment.split(":")[0];
   let minute = moment.split(":")[1];
+  let second = moment.split(":")[2];
   let currentTime = new Date(Date.now());
   let currentDate = `${currentTime.getFullYear()}-${(currentTime.getMonth() < 9
     ? "0"
@@ -33,7 +34,9 @@ function getTime(time) {
     time = date;
   } else {
     let diff = 60 * (currentHour - hour) + (currentMinute - minute);
-    if (diff < 60) {
+    if (diff === 0) {
+      time = `${currentTime.getSeconds() - second}秒前`;
+    } else if (diff < 60) {
       time = `${diff}分钟前`;
     } else {
       time = `${Math.floor(diff / 60)}小时前`;
