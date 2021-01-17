@@ -1,9 +1,4 @@
 <template>
-  <div id="background">
-    <img
-      src="https://pic1.zhimg.com/80/v2-6c5e3fcffd92c1149c28e1d075881043_720w.jpg?source=1940ef5c"
-    />
-  </div>
   <div id="wrapper">
     <ask-wrapper @click="pushAskRoute"></ask-wrapper>
     <question-wrapper />
@@ -30,16 +25,6 @@ export default {
 </script>
 
 <style>
-#background {
-  position: fixed;
-  z-index: -1;
-}
-
-#background img {
-  width: 100vw;
-  height: auto;
-}
-
 #wrapper {
   width: 90vw;
   margin: 0 auto;
