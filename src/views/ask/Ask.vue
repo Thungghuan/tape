@@ -1,4 +1,5 @@
 <template>
+  <back-ground />
   <div class="wrapper">
     <div class="ask-window">
       <div class="ask-title">
@@ -22,6 +23,7 @@
 </template>
 
 <script>
+import BackGround from "@/components/BackGround.vue";
 export default {
   data() {
     return {
@@ -46,6 +48,9 @@ export default {
           console.log(err);
         });
     }
+  },
+  components: {
+    BackGround
   }
 };
 </script>

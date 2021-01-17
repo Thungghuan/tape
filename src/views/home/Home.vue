@@ -1,4 +1,5 @@
 <template>
+  <back-ground />
   <div id="wrapper">
     <ask-wrapper @click="pushAskRoute"></ask-wrapper>
     <question-wrapper />
@@ -7,12 +8,14 @@
 
 <script>
 // @ is an alias to /src
+import BackGround from "@/components/BackGround.vue";
 import AskWrapper from "@/components/AskWrapper.vue";
 import QuestionWrapper from "@/views/home/QuestionWrapper.vue";
 
 export default {
   name: "Home",
   components: {
+    BackGround,
     AskWrapper,
     QuestionWrapper
   },

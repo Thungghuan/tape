@@ -1,4 +1,5 @@
 <template>
+  <back-ground />
   <div class="wrapper">
     <div class="question">
       <span>{{ question.question }}</span>
@@ -22,7 +23,11 @@
 </template>
 
 <script>
+import BackGround from "@/components/BackGround.vue";
 export default {
+  components: {
+    BackGround
+  },
   data() {
     return {
       user: {
