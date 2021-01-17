@@ -1,6 +1,6 @@
 <template>
   <div class="question">
-    <div class="ask-time">{{ question.date }}</div>
+    <div class="ask-time">{{ $getTime(question.date) }}</div>
     <div class="ask-text">
       <span>{{ question.question }}</span>
     </div>

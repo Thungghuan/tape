@@ -29,47 +29,15 @@ export default {
         username: "Huan",
         profile_url: "http://cdn.thungghuan.xyz/lzh-68888866.jpg"
       },
-      question: {},
-      questions: [
-        {
-          id: 1,
-          date: "3分钟前",
-          question: "这是问题1？",
-          answer: "这是回答1哦",
-          answer_date: "1分钟前"
-        },
-        {
-          id: 2,
-          date: "3分钟前",
-          question: "这是问题2？",
-          answer: "这是回答2哦",
-          answer_date: "1分钟前"
-        },
-        {
-          id: 3,
-          date: "3分钟前",
-          question: "这是问题3？",
-          answer: "这是回答3哦",
-          answer_date: "1分钟前"
-        },
-        {
-          id: 4,
-          date: "3分钟前",
-          question: "这是问题4？",
-          answer: "这是回答4哦",
-          answer_date: "1分钟前"
-        }
-      ]
+      question: {}
     };
   },
   created() {
-    // 模拟请求问题数据
-    let id = this.$route.params.id;
-    for (let index in this.questions) {
-      if (this.questions[index].id == id) {
-        this.question = this.questions[index];
-      }
-    }
+    this.$axios.get("/question/" + this.$route.params.id).then(res => {
+      this.question = res;
+      this.question.date = this.$getTime(this.question.date);
+      this.question.answer_date = this.$getTime(this.question.answer_date);
+    });
   }
 };
 </script>

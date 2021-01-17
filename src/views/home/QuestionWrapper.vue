@@ -28,40 +28,16 @@ export default {
         username: "Huan",
         profile_url: "http://cdn.thungghuan.xyz/lzh-68888866.jpg"
       },
-      questions: [
-        {
-          id: 1,
-          date: "3分钟前",
-          question: "这是问题1？",
-          answer: "这是回答1哦",
-          answer_date: "1分钟前"
-        },
-        {
-          id: 2,
-          date: "3分钟前",
-          question: "这是问题2？",
-          answer: "这是回答2哦",
-          answer_date: "1分钟前"
-        },
-        {
-          id: 3,
-          date: "3分钟前",
-          question: "这是问题3？",
-          answer: "这是回答3哦",
-          answer_date: "1分钟前"
-        },
-        {
-          id: 4,
-          date: "3分钟前",
-          question: "这是问题4？",
-          answer: "这是回答4哦",
-          answer_date: "1分钟前"
-        }
-      ]
+      questions: []
     };
   },
   components: {
     Question
+  },
+  created() {
+    this.$axios.get("/question").then(res => {
+      this.questions = res;
+    });
   },
   computed: {
     titleFontSize() {
