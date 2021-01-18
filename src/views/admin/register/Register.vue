@@ -43,6 +43,7 @@
           placeholder="再次输入密码"
           id="confirmed"
           v-model="confirmed"
+          @keyup.enter="keyUpRegister"
         />
       </div>
     </template>
@@ -93,12 +94,17 @@ export default {
             this.is_loading = false;
             console.log(res);
             alert("注册成功");
-            this.$router.push("/");
+            this.$router.push("/admin");
           })
           .catch(err => {
             this.is_loading = false;
             console.log(err);
           });
+      }
+    },
+    keyUpRegister() {
+      if (this.username && this.password && this.confirmed) {
+        this.register();
       }
     },
     showError(msg) {

@@ -30,6 +30,7 @@
           placeholder="密码"
           id="password"
           v-model="password"
+          @keyup.enter="keyUpLogin"
         />
       </div>
     </template>
@@ -70,13 +71,17 @@ export default {
         .then(res => {
           console.log(res);
           this.is_loading = false;
-          alert("登录成功");
-          this.$router.push("/");
+          this.$router.push("/admin");
         })
         .catch(err => {
           console.log(err);
           this.showError("用户名或密码错误");
         });
+    },
+    keyUpLogin() {
+      if (this.username && this.password) {
+        this.login();
+      }
     },
     showError(msg) {
       this.error_msg = msg;
