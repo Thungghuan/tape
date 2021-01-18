@@ -5,13 +5,14 @@ import axios from "axios";
 import config from "../config/index";
 
 axios.defaults.baseURL = config.request_url;
+axios.defaults.withCredentials = true;
 
 axios.interceptors.response.use(
   res => {
     return res.data;
   },
   err => {
-    return err;
+    throw err;
   }
 );
 
@@ -50,3 +51,4 @@ const app = createApp(App);
 app.use(router).mount("#app");
 app.config.globalProperties.$axios = axios;
 app.config.globalProperties.$getTime = getTime;
+app.config.globalProperties.$user = config.user;
