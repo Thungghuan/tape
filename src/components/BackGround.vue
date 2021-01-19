@@ -9,8 +9,7 @@ export default {
   name: "BackGround",
   data() {
     return {
-      background_image_url:
-        "https://pic1.zhimg.com/80/v2-6c5e3fcffd92c1149c28e1d075881043_720w.jpg?source=1940ef5c"
+      background_image_url: this.$user.background_url
     };
   }
 };

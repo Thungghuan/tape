@@ -2,10 +2,10 @@
   <div class="question-wrapper">
     <div class="question-head">
       <div class="profile">
-        <img :src="user.profile_url" alt="" />
+        <slot name="profile" :user="user"></slot>
       </div>
       <div class="title" :style="titleFontSize">
-        {{ user.username }}的其他回答（{{ questions.length }}）
+        <slot name="title" :user="user"></slot>
       </div>
     </div>
     <question
@@ -24,20 +24,15 @@ export default {
   name: "QuestionWrapper",
   data() {
     return {
-      user: {
-        username: "Huan",
-        profile_url: "http://cdn.thungghuan.xyz/lzh-68888866.jpg"
-      },
-      questions: []
+      user: this.$user
     };
+  },
+  props: {
+    questions: Array,
+    pushAnswerRoute: Function
   },
   components: {
     Question
-  },
-  created() {
-    this.$axios.get("/question").then(res => {
-      this.questions = res;
-    });
   },
   computed: {
     titleFontSize() {
@@ -45,11 +40,6 @@ export default {
         "font-size": `${1.5 -
           Math.floor((this.user.username.length + 8) / 4) * 0.1}em`
       };
-    }
-  },
-  methods: {
-    pushAnswerRoute(question) {
-      this.$router.push("/answer/" + question.id);
     }
   }
 };
@@ -60,7 +50,7 @@ export default {
   width: 90vw;
   margin: 0 auto;
   /* background-color: black; */
-  margin-top: 25vh;
+  /* margin-top: 25vh; */
   margin-bottom: 5vh;
 }
 
@@ -79,10 +69,6 @@ export default {
   box-shadow: 0 0 3px #000000;
   border-radius: 50%;
   overflow: hidden;
-}
-.profile img {
-  width: 100%;
-  height: auto;
 }
 .title {
   width: 60vw;

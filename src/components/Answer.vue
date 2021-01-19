@@ -1,5 +1,4 @@
 <template>
-  <back-ground />
   <div class="wrapper">
     <div class="question">
       <span>{{ question.question }}</span>
@@ -23,26 +22,11 @@
 </template>
 
 <script>
-import BackGround from "@/components/BackGround.vue";
 export default {
-  components: {
-    BackGround
-  },
-  data() {
-    return {
-      user: {
-        username: "Huan",
-        profile_url: "http://cdn.thungghuan.xyz/lzh-68888866.jpg"
-      },
-      question: {}
-    };
-  },
-  created() {
-    this.$axios.get("/question/" + this.$route.params.id).then(res => {
-      this.question = res;
-      this.question.date = this.$getTime(this.question.date);
-      this.question.answer_date = this.$getTime(this.question.answer_date);
-    });
+  name: "Answer",
+  props: {
+    user: Object,
+    question: Object
   }
 };
 </script>
