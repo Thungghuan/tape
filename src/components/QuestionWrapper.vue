@@ -13,7 +13,8 @@
       :question="question"
       :key="question.id"
       @click="pushAnswerRoute(question)"
-    />
+      :isShowStatus="isShowStatus"
+    ></question>
   </div>
 </template>
 
@@ -29,7 +30,8 @@ export default {
   },
   props: {
     questions: Array,
-    pushAnswerRoute: Function
+    pushAnswerRoute: Function,
+    isShowStatus: Boolean
   },
   components: {
     Question

@@ -26,7 +26,8 @@ export default {
   name: "Answer",
   props: {
     user: Object,
-    question: Object
+    question: Object,
+    isShowStatus: Boolean
   }
 };
 </script>

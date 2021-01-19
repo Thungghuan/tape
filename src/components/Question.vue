@@ -1,6 +1,24 @@
 <template>
   <div class="question">
-    <div class="ask-time">{{ $getTime(question.date) }}</div>
+    <div class="head">
+      <div class="ask-time">{{ $getTime(question.date) }}</div>
+      <div class="status">
+        <div
+          class="answer-status"
+          v-show="isShowStatus"
+          :style="answerStatus.style"
+        >
+          {{ answerStatus.text }}
+        </div>
+        <div
+          class="public-status"
+          v-show="isShowStatus"
+          :style="publicStatus.style"
+        >
+          {{ publicStatus.text }}
+        </div>
+      </div>
+    </div>
     <div class="ask-text">
       <span>{{ question.question }}</span>
     </div>
@@ -12,7 +30,26 @@
 export default {
   name: "Question",
   props: {
-    question: Object
+    question: Object,
+    isShowStatus: Boolean
+  },
+  computed: {
+    answerStatus() {
+      return {
+        style: {
+          color: this.question.answer ? "green" : "red"
+        },
+        text: this.question.answer ? "已回答" : "未回答"
+      };
+    },
+    publicStatus() {
+      return {
+        style: {
+          color: this.question.public > 0 ? "blue" : "red"
+        },
+        text: this.question.public > 0 ? "公开" : "未公开"
+      };
+    }
   }
 };
 </script>
@@ -28,13 +65,32 @@ export default {
   margin-right: auto;
   text-align: left;
 }
-.ask-time {
+.head {
+  width: 100%;
   height: 5vh;
   line-height: 5vh;
-  margin-left: 5vw;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+.head .ask-time {
+  width: 20vw;
+  height: 100%;
   color: #6b6b6b;
   font-size: 0.6em;
   user-select: none;
+}
+.head .status {
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.answer-status,
+.public-status {
+  width: 50%;
+  font-size: 0.9em;
 }
 .ask-text {
   width: 70vw;

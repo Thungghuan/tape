@@ -1,6 +1,10 @@
 <template>
   <back-ground></back-ground>
-  <question-wrapper :questions="questions" :pushAnswerRoute="pushAnswerRoute">
+  <question-wrapper
+    :questions="questions"
+    :pushAnswerRoute="pushAnswerRoute"
+    :isShowStatus="true"
+  >
     <template #profile="{ user }">
       <img :src="user.profile_url" alt="" />
     </template>

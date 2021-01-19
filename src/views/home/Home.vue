@@ -2,7 +2,11 @@
   <back-ground />
   <div id="wrapper">
     <ask-wrapper @click="pushAskRoute"></ask-wrapper>
-    <question-wrapper :questions="questions" :pushAnswerRoute="pushAnswerRoute">
+    <question-wrapper
+      :questions="questions"
+      :pushAnswerRoute="pushAnswerRoute"
+      :isShowStatus="false"
+    >
       <template #profile="{ user }">
         <img :src="user.profile_url" alt="" />
       </template>
