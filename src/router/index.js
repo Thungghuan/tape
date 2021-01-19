@@ -2,10 +2,12 @@ import { createRouter, createWebHistory } from "vue-router";
 import axios from "axios";
 import Home from "@/views/home/Home.vue";
 import Ask from "@/views/ask/Ask.vue";
-import Answer from "@/views/answer/Answer.vue";
+import ShowAnswer from "@/views/showAnswer/ShowAnswer.vue";
 import Admin from "@/views/admin/Admin.vue";
+import AllQuestions from "@/views/admin/allQuestions/AllQuestions";
 import Login from "@/views/admin/login/Login.vue";
 import Register from "@/views/admin/register/Register.vue";
+import AdminAnswer from "@/views/admin/adminAnswer/AdminAnswer.vue";
 
 const routes = [
   {
@@ -20,8 +22,8 @@ const routes = [
   },
   {
     path: "/answer/:id",
-    name: "Answer",
-    component: Answer
+    name: "ShowAnswer",
+    component: ShowAnswer
   },
   {
     path: "/admin",
@@ -47,6 +49,11 @@ const routes = [
     },
     children: [
       {
+        path: "",
+        name: "AllQuestions",
+        component: AllQuestions
+      },
+      {
         path: "login",
         name: "Login",
         component: Login
@@ -55,6 +62,11 @@ const routes = [
         path: "register",
         name: "Register",
         component: Register
+      },
+      {
+        path: "answer/:id",
+        name: "AdminAnswer",
+        component: AdminAnswer
       }
     ]
   },

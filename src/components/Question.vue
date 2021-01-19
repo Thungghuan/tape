@@ -21,6 +21,7 @@ export default {
 .question {
   width: 80vw;
   background-color: #ffffff;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
   border-radius: 3vw;
   margin-top: 10px;
   margin-left: auto;
