@@ -94,7 +94,7 @@ export default {
             this.is_loading = false;
             console.log(res);
             alert("注册成功");
-            this.$router.push("/admin");
+            this.$router.replace("/admin");
           })
           .catch(err => {
             this.is_loading = false;

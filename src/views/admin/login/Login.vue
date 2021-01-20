@@ -71,7 +71,7 @@ export default {
         .then(res => {
           console.log(res);
           this.is_loading = false;
-          this.$router.push("/admin");
+          this.$router.replace("/admin");
         })
         .catch(err => {
           console.log(err);

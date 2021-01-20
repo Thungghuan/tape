@@ -42,7 +42,7 @@ export default {
         .then(res => {
           console.log(res);
           alert("发送成功");
-          this.$router.push("/");
+          this.$router.replace("/");
         })
         .catch(err => {
           console.log(err);
@@ -55,7 +55,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .wrapper {
   height: 100vh;
   display: flex;
@@ -109,11 +109,13 @@ export default {
   width: 80%;
   height: 7vh;
   background-color: #000000;
+  border: none;
   border-radius: 3.5vh;
   color: #ffffff;
   font-size: 1em;
   line-height: 5vh;
   cursor: pointer;
+  outline: none;
   user-select: none;
 }
 .post-btn[disabled] {

@@ -25,7 +25,7 @@ export default {
       questions: []
     };
   },
-  created() {
+  activated() {
     this.$axios({
       url: "/all"
     }).then(res => {
