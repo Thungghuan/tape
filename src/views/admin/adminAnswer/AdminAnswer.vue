@@ -198,6 +198,7 @@ export default {
   border-radius: 25px;
   background-color: #e9e9e9;
   position: relative;
+  transition: 0.3s all ease-in-out;
 }
 .label-btn::after {
   content: "";
@@ -208,6 +209,7 @@ export default {
   background-color: #ffffff;
   top: 50%;
   transform: translate(-24px, -50%);
+  transition: 0.3s all ease-in-out;
 }
 .btn-wrapper input {
   display: none;
