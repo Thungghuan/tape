@@ -43,7 +43,7 @@ export default {
 }
 .form-wrapper {
   width: 90vw;
-  /* height: 60vh; */
+  max-width: 500px;
   border-radius: 3vw;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
   background-color: #ccc3c1;
@@ -89,5 +89,10 @@ export default {
 .content .error {
   font-size: 0.8em;
   color: #ff0000;
+}
+@media (min-width: 450px) {
+  .form-wrapper {
+    border-radius: 18px;
+  }
 }
 </style>

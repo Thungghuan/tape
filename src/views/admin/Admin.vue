@@ -11,5 +11,3 @@ export default {
   name: "Admin"
 };
 </script>
-
-<style></style>

@@ -57,6 +57,7 @@ export default {
 <style scoped>
 .question {
   width: 80vw;
+  max-width: 360px;
   background-color: #ffffff;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.6);
   border-radius: 3vw;
@@ -76,9 +77,10 @@ export default {
 }
 .head .ask-time {
   width: 20vw;
+  max-width: 90px;
   height: 100%;
   color: #6b6b6b;
-  font-size: 0.6em;
+  font-size: 0.8em;
   user-select: none;
 }
 .head .status {
@@ -94,6 +96,7 @@ export default {
 }
 .ask-text {
   width: 70vw;
+  max-width: 315px;
   min-height: 10vh;
   margin: 0 auto;
   display: flex;
@@ -103,6 +106,7 @@ export default {
 }
 .more-btn {
   width: 4vw;
+  max-width: 18px;
   height: 5vh;
   line-height: 4vh;
   color: #000000;
@@ -112,5 +116,13 @@ export default {
   position: relative;
   left: 72vw;
   user-select: none;
+}
+@media (min-width: 450px) {
+  .question {
+    border-radius: 13.5px;
+  }
+  .more-btn {
+    left: 324px;
+  }
 }
 </style>

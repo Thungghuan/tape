@@ -18,6 +18,7 @@ export default {
 <style scoped>
 .ask-wrapper {
   width: 80vw;
+  max-width: 360px;
   height: 30vh;
   border-radius: 4vw;
   box-shadow: 0 0 5px #9c9c9c;
@@ -43,5 +44,10 @@ export default {
   color: #969696;
   font-family: "黑体";
   font-weight: 400;
+}
+@media (min-width: 450px) {
+  .ask-wrapper {
+    border-radius: 18px;
+  }
 }
 </style>

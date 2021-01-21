@@ -50,14 +50,14 @@ export default {
 <style scoped>
 .question-wrapper {
   width: 90vw;
+  max-width: 405px;
   margin: 0 auto;
-  /* background-color: black; */
-  /* margin-top: 25vh; */
   margin-bottom: 5vh;
 }
 
 .question-head {
   width: 85vw;
+  max-width: 382.5px;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -74,7 +74,14 @@ export default {
 }
 .title {
   width: 60vw;
+  max-width: 270px;
   color: black;
   font-weight: 600;
+}
+@media (min-width: 450px) {
+  .profile {
+    width: 81px;
+    height: 81px;
+  }
 }
 </style>

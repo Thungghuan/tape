@@ -90,4 +90,10 @@ export default {
   justify-content: center;
   align-items: center;
 }
+@media (min-width: 450px) {
+  .head .profile {
+    width: 45px;
+    height: 45px;
+  }
+}
 </style>

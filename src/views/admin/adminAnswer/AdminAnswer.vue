@@ -220,4 +220,10 @@ export default {
 .btn-wrapper input:checked + label .label-btn::after {
   transform: translate(0px, -50%);
 }
+@media (min-width: 450px) {
+  .head .profile {
+    width: 63px;
+    height: 63px;
+  }
+}
 </style>

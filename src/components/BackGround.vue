@@ -24,5 +24,7 @@ export default {
 #background img {
   width: 100vw;
   height: auto;
+  max-height: 100vh;
+  object-fit: cover;
 }
 </style>

@@ -64,7 +64,9 @@ export default {
 }
 .ask-window {
   width: 80vw;
+  max-width: 360px;
   height: 60vh;
+  max-height: 400px;
   border-radius: 4vw;
   box-shadow: 0 0 5px #9c9c9c;
   margin: 0 auto;
@@ -108,17 +110,23 @@ export default {
 .post-btn {
   width: 80%;
   height: 7vh;
+  max-height: 28px;
   background-color: #000000;
   border: none;
   border-radius: 3.5vh;
   color: #ffffff;
   font-size: 1em;
-  line-height: 5vh;
+  line-height: 100%;
   cursor: pointer;
   outline: none;
   user-select: none;
 }
 .post-btn[disabled] {
   background-color: #808080;
+}
+@media (min-width: 450px) {
+  .ask-window {
+    border-radius: 18px;
+  }
 }
 </style>

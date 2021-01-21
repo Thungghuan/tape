@@ -54,6 +54,7 @@ export default {
 <style scoped>
 #wrapper {
   width: 90vw;
+  max-width: 405px;
   margin: 0 auto;
   padding-top: 25vh;
 }

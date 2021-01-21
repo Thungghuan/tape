@@ -31,6 +31,7 @@ export default {
 .question,
 .answer {
   width: 85vw;
+  max-width: 383px;
   border-radius: 4vw;
   box-shadow: 0 2px 4px #9c9c9c;
   position: relative;
@@ -54,5 +55,14 @@ export default {
 .answer {
   height: 50vh;
   overflow: hidden;
+}
+@media (min-width: 450px) {
+  .question,
+  .answer {
+    border-radius: 18px;
+  }
+  .question .date {
+    left: 22.5px;
+  }
 }
 </style>
