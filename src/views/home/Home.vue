@@ -1,5 +1,6 @@
 <template>
   <back-ground />
+  <loading-page v-show="isLoading" />
   <div id="wrapper">
     <ask-wrapper @click="pushAskRoute"></ask-wrapper>
     <question-wrapper
@@ -20,6 +21,7 @@
 <script>
 // @ is an alias to /src
 import BackGround from "@/components/BackGround.vue";
+import LoadingPage from "@/components/LoadingPage.vue";
 import AskWrapper from "@/components/AskWrapper.vue";
 import QuestionWrapper from "@/components/QuestionWrapper.vue";
 
@@ -27,16 +29,20 @@ export default {
   name: "Home",
   data() {
     return {
-      questions: []
+      questions: [],
+      isLoading: false
     };
   },
   created() {
+    this.isLoading = true;
     this.$axios.get("/question").then(res => {
       this.questions = res;
+      this.isLoading = false;
     });
   },
   components: {
     BackGround,
+    LoadingPage,
     AskWrapper,
     QuestionWrapper
   },

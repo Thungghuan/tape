@@ -1,5 +1,6 @@
 <template>
   <back-ground></back-ground>
+  <loading-page v-show="isLoading" />
   <question-wrapper
     :questions="questions"
     :pushAnswerRoute="pushAnswerRoute"
@@ -16,25 +17,30 @@
 
 <script>
 import BackGround from "@/components/BackGround.vue";
+import LoadingPage from "@/components/LoadingPage.vue";
 import QuestionWrapper from "@/components/QuestionWrapper.vue";
 
 export default {
   name: "AllQuestions",
   data() {
     return {
-      questions: []
+      questions: [],
+      isLoading: false
     };
   },
   activated() {
+    this.isLoading = true;
     this.$axios({
       url: "/all"
     }).then(res => {
       console.log(res);
       this.questions = res;
+      this.isLoading = false;
     });
   },
   components: {
     BackGround,
+    LoadingPage,
     QuestionWrapper
   },
   methods: {

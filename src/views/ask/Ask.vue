@@ -1,4 +1,5 @@
 <template>
+  <loading-page v-show="isLoading" />
   <back-ground />
   <div class="wrapper">
     <div class="ask-window">
@@ -24,14 +25,17 @@
 
 <script>
 import BackGround from "@/components/BackGround.vue";
+import LoadingPage from "@/components/LoadingPage.vue";
 export default {
   data() {
     return {
-      question: ""
+      question: "",
+      isLoading: false
     };
   },
   methods: {
     postQuestion() {
+      this.isLoading = true;
       this.$axios({
         url: "/question",
         method: "post",
@@ -41,16 +45,20 @@ export default {
       })
         .then(res => {
           console.log(res);
+          this.isLoading = false;
           alert("发送成功");
           this.$router.replace("/");
         })
         .catch(err => {
+          this.isLoading = false;
+          alert("发送失败，请稍后重试");
           console.log(err);
         });
     }
   },
   components: {
-    BackGround
+    BackGround,
+    LoadingPage
   }
 };
 </script>

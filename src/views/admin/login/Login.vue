@@ -1,5 +1,5 @@
 <template>
-  <loading-page v-show="is_loading"></loading-page>
+  <loading-page v-show="isLoading"></loading-page>
   <admin-form :error_msg="error_msg" :is_error="is_error">
     <template #profile>
       <img :src="$user.profile_url" alt="" />
@@ -54,12 +54,12 @@ export default {
       password: "",
       error_msg: "",
       is_error: false,
-      is_loading: false
+      isLoading: false
     };
   },
   methods: {
     login() {
-      this.is_loading = true;
+      this.isLoading = true;
       this.$axios({
         url: "/login",
         method: "post",
@@ -70,7 +70,7 @@ export default {
       })
         .then(res => {
           console.log(res);
-          this.is_loading = false;
+          this.isLoading = false;
           this.$router.replace("/admin");
         })
         .catch(err => {
@@ -86,7 +86,7 @@ export default {
     showError(msg) {
       this.error_msg = msg;
       this.is_error = true;
-      this.is_loading = false;
+      this.isLoading = false;
       setTimeout(() => {
         this.is_error = false;
       }, 3000);

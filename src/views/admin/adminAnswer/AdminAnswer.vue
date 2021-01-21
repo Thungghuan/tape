@@ -1,5 +1,6 @@
 <template>
   <back-ground />
+  <loading-page v-show="isLoading" />
   <answer-com :user="user" :question="question">
     <template #answer>
       <div class="answer-wrapper">
@@ -35,6 +36,7 @@
 
 <script>
 import BackGround from "@/components/BackGround.vue";
+import LoadingPage from "@/components/LoadingPage.vue";
 import AnswerCom from "@/components/AnswerCom.vue";
 
 export default {
@@ -47,10 +49,12 @@ export default {
         public: 1
       },
       oldAnswer: "",
-      isPublic: false
+      isPublic: false,
+      isLoading: false
     };
   },
   created() {
+    this.isLoading = true;
     this.$axios({
       url: "/all/" + this.id
     }).then(res => {
@@ -61,6 +65,7 @@ export default {
       }
       this.isPublic = this.question.public ? true : false;
       this.oldAnswer = this.question.answer;
+      this.isLoading = false;
     });
   },
   computed: {
@@ -90,6 +95,7 @@ export default {
   },
   methods: {
     post() {
+      this.isLoading = true;
       this.$axios({
         url: "/answer/" + this.id,
         method: "post",
@@ -99,12 +105,14 @@ export default {
         }
       }).then(res => {
         console.log(res);
+        this.isLoading = false;
         this.$router.replace("/admin");
       });
     }
   },
   components: {
     BackGround,
+    LoadingPage,
     AnswerCom
   }
 };

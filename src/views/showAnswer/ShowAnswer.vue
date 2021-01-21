@@ -1,5 +1,6 @@
 <template>
   <back-ground />
+  <loading-page v-show="isLoading" />
   <answer-com :user="user" :question="question">
     <template #answer>
       <div class="head">
@@ -20,27 +21,32 @@
 
 <script>
 import BackGround from "@/components/BackGround.vue";
+import LoadingPage from "@/components/LoadingPage.vue";
 import AnswerCom from "@/components/AnswerCom.vue";
 
 export default {
   name: "ShowAnswer",
   components: {
     BackGround,
+    LoadingPage,
     AnswerCom
   },
   data() {
     return {
       user: this.$user,
-      question: {}
+      question: {},
+      isLoading: false
     };
   },
   created() {
+    this.isLoading = true;
     this.$axios({
       url: "/question/" + this.$route.params.id
     }).then(res => {
       this.question = res;
       this.question.date = this.$getTime(this.question.date);
       this.question.answer_date = this.$getTime(this.question.answer_date);
+      this.isLoading = false;
     });
   }
 };

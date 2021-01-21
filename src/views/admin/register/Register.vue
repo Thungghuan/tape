@@ -1,5 +1,5 @@
 <template>
-  <loading-page v-show="is_loading"></loading-page>
+  <loading-page v-show="isLoading"></loading-page>
   <admin-form :error_msg="error_msg" :is_error="is_error">
     <template #profile>
       <div class="default_avatar"></div>
@@ -71,12 +71,12 @@ export default {
       confirmed: "",
       error_msg: "",
       is_error: false,
-      is_loading: false
+      isLoading: false
     };
   },
   methods: {
     register() {
-      this.is_loading = true;
+      this.isLoading = true;
       if (this.password.length < 4) {
         this.showError("密码的长度过短");
       } else if (this.password != this.confirmed) {
@@ -91,13 +91,13 @@ export default {
           }
         })
           .then(res => {
-            this.is_loading = false;
+            this.isLoading = false;
             console.log(res);
             alert("注册成功");
             this.$router.replace("/admin");
           })
           .catch(err => {
-            this.is_loading = false;
+            this.isLoading = false;
             console.log(err);
           });
       }
@@ -110,7 +110,7 @@ export default {
     showError(msg) {
       this.error_msg = msg;
       this.is_error = true;
-      this.is_loading = false;
+      this.isLoading = false;
       setTimeout(() => {
         this.is_error = false;
       }, 3000);
