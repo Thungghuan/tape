@@ -22,8 +22,10 @@ export default {
   z-index: 10;
 }
 .loading-wrapper img {
-  width: 20%;
+  width: 20vw;
+  max-width: 90px;
   height: auto;
+  max-height: 90px;
   transform: rotate(0deg);
   animation: loading linear infinite 1s;
 }
