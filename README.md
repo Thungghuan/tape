@@ -1,8 +1,8 @@
 # tape
 
-> :qatar: An anonymous ask & answer box
+> :dark_sunglasses: An anonymous ask & answer box
 
-> My box is at [http://tape.thungghuan.xyz](http://tape.thungghuan.xyz), welcome to ask me anything and star this repository.
+> :mailbox_with_mail:My box is at [http://tape.thungghuan.xyz](http://tape.thungghuan.xyz), welcome to ask me anything and star this repository.
 
 ## Description
 
